@@ -1,4 +1,17 @@
-\documentclass[pdflatex,sn-mathphys-num]{sn-jnl}
+%                                                                 %%
+%% Please do not use \input{...} to include other tex 
+%%\documentclass[pdflatex,sn-nature]{sn-jnl}% Style for submissions to Nature Portfolio journals
+%%\documentclass[pdflatex,sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+\documentclass[pdflatex,sn-mathphys-num]{sn-jnl}% Math and Physical Sciences Numbered Reference Style
+%%\documentclass[pdflatex,sn-mathphys-ay]{sn-jnl}% Math and Physical Sciences Author Year Reference Style
+%%\documentclass[pdflatex,sn-aps]{sn-jnl}% American Physical Society (APS) Reference Style
+%%\documentclass[pdflatex,sn-vancouver-num]{sn-jnl}% Vancouver Numbered Reference Style
+%%\documentclass[pdflatex,sn-vancouver-ay]{sn-jnl}% Vancouver Author Year Reference Style
+%%\documentclass[pdflatex,sn-apa]{sn-jnl}% APA Reference Style
+%%\documentclass[pdflatex,sn-chicago]{sn-jnl}% Chicago-based Humanities Reference Style
+
+%%%% Standard Packages
+%%<additional latex packages if required can be included here>
 
 \usepackage[utf8]{inputenc}
 
@@ -16,10 +29,16 @@
 \usepackage{algorithmicx}%
 \usepackage{algpseudocode}%
 \usepackage{listings}%
+%%%%
 
+
+%% as per the requirement new theorem styles can be included as shown below
 \theoremstyle{thmstyleone}%
-\newtheorem{theorem}{Theorem}%
-\newtheorem{proposition}[theorem]{Proposition}%
+\newtheorem{theorem}{Theorem}%  meant for continuous numbers
+%%\newtheorem{theorem}{Theorem}[section]% meant for sectionwise numbers
+%% optional argument [theorem] produces theorem numbering sequence instead of independent numbers for Proposition
+\newtheorem{proposition}[theorem]{Proposition}% 
+%%\newtheorem{proposition}{Proposition}% to get separate numbers for theorem and proposition etc.
 
 \theoremstyle{thmstyletwo}%
 \newtheorem{example}{Example}%
@@ -29,6 +48,7 @@
 \newtheorem{definition}{Definition}%
 
 \raggedbottom
+%%\unnumbered% uncomment this for unnumbered level heads
 
 \begin{document} 
 
@@ -49,8 +69,23 @@
 
 \affil*[1]{\orgdiv{Computer Science Department}, \orgname{American International University-Bangladesh}, \orgaddress{\street{408/1, Kuratoli Road}, \city{Kuril}, \postcode{1229}, \state{Dhaka}, \country{Bangladesh}}}
 
+
+% \affil[2]{\orgdiv{Computer Science Department}, \orgname{American International University-Bangladesh}, \orgaddress{\street{408/1, Kuratoli Road}, \city{Kuril}, \postcode{1229}, \state{Dhaka}, \country{Bangladesh}}}
+
+% \affil[3]{\orgdiv{Computer Science Department}, \orgname{American International University-Bangladesh}, \orgaddress{\street{408/1, Kuratoli Road}, \city{Kuril}, \postcode{1229}, \state{Dhaka}, \country{Bangladesh}}}
+
+% \affil[2]{\orgdiv{CSE}, \orgname{AIUB}, \orgaddress{\street{Street}, \city{City}, \postcode{10587}, \state{State}, \country{Country}}}
+
+% \affil[3]{\orgdiv{Department}, \orgname{Organization}, \orgaddress{\street{Street}, \city{City}, \postcode{610101}, \state{State}, \country{Country}}}
+
+%%==================================%%
+%% Sample for unstructured abstract %%
+%%==================================%%
+
+% \abstract{Electroencephalography (EEG) signal classification is a cornerstone of brain-computer interfaces (BCIs), enabling applications in neurorehabilitation, cognitive monitoring, and assistive technologies. However, the inherent non-stationarity, high dimensionality, and susceptibility to noise in EEG signals pose significant challenges for robust classification. To address these, we propose EEG-DATNet, a novel hybrid deep learning architecture that synergistically integrates multi-scale temporal convolutions, spatial convolutions, dual statistical pooling, a biologically inspired spiking activation function, and a dual-attention transformer encoder. This architecture captures intricate spatiotemporal dynamics by extracting frequency-specific features across multiple temporal resolutions, modeling inter-channel functional connectivity, and selectively attending to salient temporal segments and informative feature channels. A comprehensive preprocessing pipeline, leveraging MNE-Python for filtering, independent component analysis, and epoching, further enhances signal quality. Evaluated on three publicly available EEG benchmark datasets—BCI Competition IV-2a (4-class motor imagery), BCI Competition IV-2b (2-class motor imagery), and the Thinking Out Loud (ToL) dataset (cognitive state decoding)—EEG-DATNet achieves mean classification accuracies of 82.84\%, 69.93\%, and 39.28\%, respectively, surpassing state-of-the-art models including EEGNet, Incep-EEGNet, and BiLSTM. Ablation studies validate the critical contributions of the dual-attention mechanism and variance pooling, with performance drops of up to 33.32\% when these components are removed. By combining biologically plausible processing with advanced attention mechanisms, EEG-DATNet provides a robust, interpretable, and generalizable framework for EEG-based BCIs, paving the way for transformative applications in clinical and research domains.}
+
 \abstract{
-Electroencephalography (EEG) signal classification is vital for brain-computer interfaces (BCIs), supporting applications in neurorehabilitation, cognitive monitoring, and assistive technologies. However, challenges such as non-stationarity, high dimensionality, and noise make accurate decoding difficult. To address these issues, we introduce EEG-DATNet, a new approach that combines multi-scale temporal and spatial analysis, dual statistical pooling (average and variance), a biologically inspired activation method, and a dual-attention system to improve EEG interpretation. This method highlights important time segments and key signal channels, enhancing the ability to understand complex brain activity patterns. We tested EEG-DATNet on three widely used datasets: BCI Competition IV-2a (4-class motor imagery), BCI Competition IV-2b (2-class motor imagery), and the Thinking Out Loud (ToL) dataset (cognitive state decoding). The approach achieved average accuracies of 82.84\%, 89.03\%, and 43.68\% across these datasets, surpassing traditional methods like EEGNet, Incep-EEGNet, and BiLSTM. For the ToL dataset, the 43.68\% accuracy, while seemingly modest, is significant given the inherent challenges of inner speech decoding from non-invasive EEG, which often operates near chance levels for complex tasks. This performance is particularly noteworthy when compared to theoretical limits and human-level performance benchmarks, which are often derived from invasive methods or simpler paradigms. Additional tests showed that the dual-attention system and variance analysis are essential, with performance decreasing noticeably when these elements are excluded. The preprocessing steps, which include filtering and organizing data into segments, further improve signal quality. These findings highlight EEG-DATNet’s effectiveness and adaptability, offering a promising tool for advancing neurorehabilitation, cognitive monitoring, and assistive technologies. By providing a clearer and more adaptable way to analyze EEG signals, EEG-DATNet lays a strong foundation for future developments in brain-computer interface systems.
+Electroencephalography (EEG) signal classification is vital for brain-computer interfaces (BCIs), supporting applications in neurorehabilitation, cognitive monitoring, and assistive technologies. However, challenges such as non-stationarity, high dimensionality, and noise make accurate decoding difficult. To address these issues, we introduce EEG-DATNet, a new approach that combines multi-scale temporal and spatial analysis, dual statistical pooling (average and variance), a biologically inspired activation method, and a dual-attention system to improve EEG interpretation. This method highlights important time segments and key signal channels, enhancing the ability to understand complex brain activity patterns. We tested EEG-DATNet on three widely used datasets: BCI Competition IV-2a (4-class motor imagery), BCI Competition IV-2b (2-class motor imagery), and the Thinking Out Loud (ToL) dataset (cognitive state decoding). The approach achieved average accuracies of 82.84\%, 89.03\%, and 43.68\% across these datasets, surpassing traditional methods like EEGNet, Incep-EEGNet, and BiLSTM. Additional tests showed that the dual-attention system and variance analysis are essential, with performance decreasing noticeably when these elements are excluded. The preprocessing steps, which include filtering and organizing data into segments, further improve signal quality. These findings highlight EEG-DATNet’s effectiveness and adaptability, offering a promising tool for advancing neurorehabilitation, cognitive monitoring, and assistive technologies. By providing a clearer and more adaptable way to analyze EEG signals, EEG-DATNet lays a strong foundation for future developments in brain-computer interface systems.
 }
 
 \keywords{Brain–computer interface, channel attention, cognitive state classification, deep learning, dual attention mechanism, dual pooling, electroencephalography, multi-scale temporal convolution, neural signal decoding, neurophysiological signal processing, EEG-DATNet, spatial attention, spatial convolution, spatiotemporal feature extraction, transformer encoder, variance pooling}
@@ -78,7 +113,15 @@ In this paper, we propose \textbf{EEG-DATNet}, a transformer based novel hybrid 
     \item To improve temporal sparsity and energy efficiency, a spiking-inspired activation function is integrated, inspired by biologically plausible neural processing models.
 \end{itemize}
 
-The proposed \textbf{EEG-DATNet} architecture is evaluated on three publicly available EEG benchmark datasets: \textit{BCI Competition IV-2a} \cite{tangermann2012review}, \textit{BCI Competition IV-2b} \cite{leeb2008graz2b}, and the \textit{Thinking Out Loud (TOL)} \cite{nieto2022thinking} dataset. Across all datasets, EEG-DATNet consistently outperforms baseline convolutional neural network (CNN) and transformer-based models in classification tasks.The increase in performance is due to the implementation of multiscale temporal feature extraction, dual attention (spatial and temporal), and statistical pooling. These components allow the model to learn and represent intricate brain dynamics much better. These findings highlight the model\textquotesingle s capacity to generalize across a variety of tasks on the basis of EEG, including motor imagery and naturalistic cognitive processing, in favor of its potential for valid prediction of biological activity.
+The proposed \textbf{EEG-DATNet} architecture is evaluated on three publicly available EEG benchmark datasets: \textit{BCI Competition IV-2a} \cite{tangermann2012review}, \textit{BCI Competition IV-2b} \cite{leeb2008graz2b}, and the \textit{Thinking Out Loud (TOL)} \cite{nieto2022thinking} dataset. Across all datasets, EEG-DATNet consistently outperforms baseline convolutional neural network (CNN) and transformer-based models in classification tasks.The increase in performance is due to the implementation of multiscale temporal feature extraction, dual attention (spatial and temporal), and statistical pooling. These components allow the model to learn and represent intricate brain dynamics much better. These findings highlight the model's capacity to generalize across a variety of tasks on the basis of EEG, including motor imagery and naturalistic cognitive processing, in favor of its potential for valid prediction of biological activity.
+
+
+% \section{Methodology and Model Architecture}\label{sec2}
+
+% \subsection{Introduction and Motivation}\label{subsec1}
+% Electroencephalography (EEG) is a non-invasive technique for recording brain activity and is widely used in clinical and research applications. However, the high-dimensional, noisy, and non-stationary nature of EEG signals poses significant challenges for accurate classification \cite{lotte2018review}. In recent years, deep learning approaches have emerged as promising tools to capture the complex spatiotemporal patterns in EEG data \cite{schirrmeister2017deep, ordonez2016deep}. 
+
+% Inspired by the biological realism of spiking neurons and the success of hybrid CNN-RNN architectures in time-series analysis \cite{maass2002real, Gu_2021}, we propose a novel Convolutional-Recurrent Neural Network (CRNN) model. The proposed architecture integrates multi-scale temporal convolutions with spiking activation functions, spatial filtering, and dual pooling mechanisms, followed by bidirectional LSTM layers to capture long-range dependencies. The final classification is performed using a fully connected layer. This section details the proposed model, outlining both the mathematical foundations and the rationale behind each design component.
 
 \section{Related Works}
 Recent advances in EEG signal classification have leveraged deep learning to address the challenges of non-stationarity and noise in EEG data. \citet{lawhern2018eegnet} introduced EEGNet, a compact convolutional neural network designed for EEG-based BCIs, which uses depthwise and separable convolutions to capture spatial and temporal patterns efficiently. This model demonstrated robust performance across various BCI paradigms but is limited in modeling long-range dependencies. Similarly, \citet{schirrmeister2017deep} proposed DeepConvNet and ShallowConvNet, which employ deeper convolutional architectures to decode EEG signals, achieving competitive results in motor imagery tasks but requiring significant computational resources.
@@ -86,261 +129,629 @@ Recent advances in EEG signal classification have leveraged deep learning to add
 To address temporal dynamics, recurrent neural networks such as LSTMs have been explored. \citet{craik2019deep} reviewed deep learning approaches for EEG classification, highlighting the effectiveness of LSTMs in capturing sequential patterns, though they noted issues with vanishing gradients and high training complexity. More recently, transformer-based models have gained attention for their ability to model long-range dependencies through self-attention. \citet{vafaei2025transformers} surveyed transformer applications in EEG analysis, demonstrating their superior performance in motor imagery and emotion classification tasks, albeit with increased computational demands.
 
 Hybrid architectures combining convolutional and attention mechanisms have also emerged. \citet{ma2024attention} proposed an attention-based CNN with multi-modal temporal information fusion, achieving improved accuracy in motor imagery decoding by integrating temporal and frequency-domain features. Additionally, \citet{zhang2020inception} introduced Incep-EEGNet, an inception-based convolutional network that enhances feature extraction through multi-scale convolutions, showing promising results in motor imagery tasks but lacking the global context provided by transformers.
+
 Spiking neural networks (SNNs) have been investigated for their biological plausibility and energy efficiency. \citet{neftci2019surrogate} developed surrogate gradient learning for SNNs, enabling gradient-based optimization while mimicking neuronal firing, which inspired our spiking activation function. These works collectively underscore the need for models that balance computational efficiency, biological plausibility, and robust feature extraction, motivating the development of EEG-DATNet as a hybrid framework integrating multi-scale convolutions, dual attention, and spiking activations.
 
-\subsection{Benchmarking Against Modern SOTA}
 
-To provide a comprehensive evaluation of EEG-DATNet, we benchmark its performance against recent state-of-the-art models, specifically EEG Conformer \cite{song2023eeg} and advanced FBCSP variants. This comparison focuses not only on classification accuracy but also on architectural advantages and computational efficiency.
-
-\subsubsection{EEG Conformer}
-
-EEG Conformer, introduced by \citet{song2023eeg}, is a compact Convolutional Transformer designed for EEG classification. It integrates temporal and spatial convolution layers for local feature extraction and a self-attention module for global correlation. The authors reported state-of-the-art performance on several public datasets. For instance, on Dataset I (Motor Imagery - BCI Competition IV-2a), EEG Conformer achieved an average accuracy of 78.66\% and a kappa value of 0.7155, outperforming traditional methods like FBCSP and EEGNet. While EEG Conformer utilizes a self-attention mechanism to capture global relationships, our proposed dual-attention mechanism in EEG-DATNet extends this by explicitly combining spatial attention (focusing on informative time points) and channel attention (reweighting feature dimensions). This dual approach is hypothesized to provide a more refined and targeted attention mechanism compared to the general spatial-temporal attention in EEG Conformer, allowing for a more precise identification of salient features in both the temporal and channel domains.
-
-\subsubsection{FBCSP++ and Enhanced Variants}
-
-Filter Bank Common Spatial Pattern (FBCSP) is a well-established and highly effective feature extraction method in EEG-based Brain-Computer Interfaces (BCIs). Numerous enhanced variants, often referred to as FBCSP++, have been developed to improve its performance and address limitations. These methods typically involve optimizing filter banks, incorporating advanced feature selection techniques, or combining FBCSP with other machine learning algorithms. While FBCSP variants have demonstrated high classification accuracies, especially in motor imagery tasks, they often rely on handcrafted features and may not capture the complex non-linear relationships in EEG data as effectively as deep learning models. Furthermore, their computational complexity can vary significantly depending on the specific enhancements implemented. Our EEG-DATNet, being an end-to-end deep learning architecture, aims to automatically learn optimal features directly from raw EEG data, potentially surpassing the performance of FBCSP-based methods by leveraging hierarchical feature learning and advanced attention mechanisms.
-
-\subsection{Quantifying Computational Efficiency}
-
-For real-time and embedded BCI applications, computational efficiency is as crucial as classification accuracy. We quantify key metrics such as FLOPs (Floating Point Operations), inference latency, and memory footprint for EEG-DATNet and compare them with baselines like EEGNet and EEG Conformer.
-
-\subsubsection{EEGNet}
-
-EEGNet \cite{lawhern2018eegnet} is a lightweight convolutional neural network specifically designed for EEG, known for its efficiency. As reported by \citet{xu2021transfer}, EEGNet demonstrates significantly lower computational complexity (0.0041 GFLOPs), fewer parameters (0.013 M), and faster inference times (176 seconds for a specific dataset and setup) compared to other deeper models like DenseNet, Xception, ResNet50, and VGG16. This makes EEGNet a strong contender for resource-constrained environments. Our aim with EEG-DATNet is to achieve superior classification performance while maintaining a reasonable balance with computational demands, potentially through optimized attention mechanisms and efficient network design.
-
-\subsubsection{EEG-DATNet Computational Analysis}
-
-(This section will be filled with specific FLOPs, inference latency, and memory footprint for EEG-DATNet after implementation and evaluation. It will also include a direct comparison with EEGNet and EEG Conformer based on these metrics.)
-
-\subsection{Spiking Activation Module Analysis}
-
-Our EEG-DATNet architecture incorporates a spiking-inspired activation function to leverage the benefits of biologically plausible neural processing models, particularly in terms of temporal sparsity and energy efficiency. Spiking Neural Networks (SNNs) are inherently event-driven, meaning neurons only activate (spike) when their membrane potential reaches a threshold. This contrasts with traditional Artificial Neural Networks (ANNs) that use continuous activation functions like ReLU or ELU, where all neurons in a layer typically produce an output for every input.
-
-\subsubsection{Quantifying Sparsity}
-
-Sparsity in SNNs can be quantified as the percentage of zero activations (no spike) over a given time window. This inherent sparsity leads to more efficient computations, as operations are only performed for active neurons. While ReLU and ELU can also produce sparse activations (zero output for negative inputs), the sparsity in SNNs is a fundamental property of their event-driven operation. This often translates to a higher degree of sparsity compared to ANNs, especially when considering the overall activity across the network over time. For instance, in SNNs employing time-to-first-spike (TTFS) coding, each neuron fires exactly one spike, leading to intrinsically sparse spike generation, which is a costly process from an energetic perspective \cite{stanojevic2024high}.
-
-\subsubsection{Energy Efficiency and Biological Plausibility}
-
-SNNs offer significant advantages in terms of energy efficiency, particularly when implemented on neuromorphic hardware. The event-driven nature means that computations are only performed when a spike occurs, leading to substantially lower power consumption compared to ANNs, where computations are performed for all neurons regardless of their activation value. This aligns with the biological reality of the brain, where neurons communicate via discrete electrical pulses, and energy expenditure is directly linked to spiking activity. This biological plausibility makes SNNs an attractive choice for developing brain-inspired computing systems.
-
-\subsubsection{Surrogate Gradient Function ($\delta$ in Eq. 7)}
-
-Training SNNs with standard backpropagation is challenging due to the non-differentiable nature of the spiking activation function (e.g., the Heaviside step function). To overcome this, surrogate gradient functions are employed. These are smooth, differentiable approximations of the non-differentiable spiking function\textquotesingle s derivative, enabling the application of gradient-based optimization methods. The specific form of $\delta$ in Equation 7 represents the chosen surrogate gradient function, which allows for effective learning in SNNs while preserving their unique characteristics. Common examples of surrogate gradient functions include sigmoid, arctan, and piecewise linear functions, each offering different properties of smoothness and boundedness \cite{he2023surrogate}.
-
-\subsection{Evaluating Data Efficiency}
-
-Data efficiency is a crucial aspect for the practical deployment of EEG-based BCI systems, as collecting large amounts of high-quality EEG data can be time-consuming and resource-intensive. We evaluate the data efficiency of EEG-DATNet by analyzing its performance under conditions of reduced training data and its ability to generalize across subjects.
-
-\subsubsection{Performance on Reduced Training Data}
-
-Deep learning models typically require substantial amounts of data to achieve optimal performance and avoid overfitting. However, in many real-world EEG scenarios, data availability is limited. To assess EEG-DATNet\textquotesingle s robustness to data scarcity, we will analyze its classification performance when trained on reduced subsets of the available data (e.g., 50\%, 25\%, or even 10\% of the original training samples). A model that maintains competitive performance with less training data demonstrates higher data efficiency, making it more suitable for applications where extensive data collection is impractical.
-
-\subsubsection{Cross-Subject Generalization}
-
-Inter-subject variability is a significant challenge in EEG-based BCIs. Models trained on data from one set of individuals often perform poorly on new, unseen subjects due to differences in brain anatomy, electrode placement, and cognitive strategies. To evaluate EEG-DATNet\textquotesingle s cross-subject generalization capabilities, we will employ a rigorous Leave-One-Subject-Out (LOSO) cross-validation strategy. In LOSO, the model is trained on data from all subjects except one, and then tested on the held-out subject. This process is repeated for each subject, and the average performance provides a realistic measure of the model\textquotesingle s ability to generalize to new users without subject-specific calibration. Additionally, we will explore the potential for few-shot fine-tuning, where a pre-trained EEG-DATNet model is adapted to a new subject with only a small amount of their data, aiming to achieve robust performance with minimal calibration effort.
-
-\subsection{Improving Clinical and Real-World Relevance}
-
-For EEG-DATNet to be truly impactful, its performance and design must be considered within the context of clinical applications and real-world deployment. This involves analyzing error patterns, visualizing model insights, and assessing practical feasibility.
-
-\subsubsection{Confusion Matrices and Error Analysis}
-
-To gain deeper insights into the classification performance, especially for the challenging ToL dataset, we will present detailed confusion matrices. These matrices will illustrate the specific types of errors made by EEG-DATNet, for example, distinguishing between \textquotesingle left\textquotesingle and \textquotesingle right\textquotesingle imagined movements or different cognitive states. Analyzing these error patterns can reveal common misclassifications and guide future improvements in model design or training strategies. This is particularly important for clinical applications where certain misclassifications might have more severe consequences than others.
-
-\subsubsection{Attention Maps for Misclassified Samples}
-
-To enhance the interpretability of EEG-DATNet and understand its decision-making process, we will extend the visualization of attention maps (similar to Fig. 5 in the original paper) to include misclassified samples. By comparing attention patterns for correctly and incorrectly classified instances, we can identify whether the model is focusing on irrelevant features or failing to capture critical discriminative information in misclassified cases. This visual analysis can provide valuable neurophysiological insights and help refine the model\textquotesingle s attention mechanisms.
-
-\subsubsection{Feasibility of Real-Time Deployment}
-
-Real-time deployment of BCI systems in clinical or everyday settings presents several challenges, including handling online EEG noise, compatibility with wearable hardware, and performance with limited channel setups (e.g., 22-channel systems). We will discuss the feasibility of EEG-DATNet for such scenarios by considering:
-\begin{itemize}
-\item Online EEG Noise: The robustness of EEG-DATNet to various types of real-world noise (e.g., muscle artifacts, eye blinks, environmental interference) will be discussed, potentially through simulations or evaluations on noisy datasets.
-\item Wearable Hardware Compatibility: The computational footprint (FLOPs, memory, latency) of EEG-DATNet will be assessed in relation to the capabilities of typical wearable EEG devices, which often have limited processing power and battery life.
-\item 22-Channel Setups: While some research uses high-density EEG, many practical applications rely on lower-density setups. We will discuss how EEG-DATNet\textquotesingle s performance scales with reduced channel counts, specifically addressing its applicability to 22-channel systems, which are common in portable BCI devices.
-\end{itemize}
-
-\subsubsection{Neurophysiological Interpretation of Variance Pooling}
-
-Our inclusion of variance pooling alongside average pooling is designed to capture not just the mean activity but also the variability within EEG signals. We will interpret whether this variance pooling reflects known neurophysiological phenomena, such as Event-Related Desynchronization (ERD) and Event-Related Synchronization (ERS). ERD/ERS are changes in the power of specific EEG frequency bands associated with cognitive or motor tasks, reflecting neuronal population activity. By analyzing the features learned through variance pooling, we aim to provide insights into whether EEG-DATNet is effectively capturing these dynamic changes in brain states, thereby enhancing the neurophysiological interpretability of our model.
-
-\section{Methodology}
-Multiple pre-processing steps were applied to the EEG data to address noise and
-variability. These steps included inspecting raw data, configuring channels, filtering
-noise, and removing artifacts. The data also segmented into epochs to capture taskspecific events. The processed data served as input for EEG-DATNet training. The
-model architecture integrates temporal and spatial convolutions, spiking activation,
-dual pooling, and a transformer encoder. Before delving into the model design, we
-describe the datasets used for evaluation.
+\section{Methodology}\label{subsec1}
+Multiple pre-processing steps were applied to the EEG data to address noise and variability. These steps included inspecting raw data, configuring channels, filtering noise, and removing artifacts. The data  also segmented into epochs to capture task-specific events. The processed data served as input for EEG-DATNet training. The model architecture integrates temporal and spatial convolutions, spiking activation, dual pooling, and a transformer encoder. Before delving into the model design, we describe the datasets used for evaluation.
 
 \subsection{Dataset}
-The proposed study utilizes three publicly available EEG datasets: BCI IV-2a, BCI
-IV-2b, and the Thinking Out Loud (ToL) Dataset. All three datasets provide valuable
-EEG recordings for motor imagery and thought processes, forming a comprehensive
-basis for analyzing brain activity patterns through machine learning and deep learning
-approaches.
+The proposed study utilizes three publicly available EEG datasets: BCI IV-2a, BCI IV-2b, and the Thinking Out Loud (ToL) Dataset. All three datasets provide valuable EEG recordings for motor imagery and thought processes, forming a comprehensive basis for analyzing brain activity patterns through machine learning and deep learning approaches.
 
 \begin{itemize}
-\item Dataset BCI IV 2a: 4-Class Motor Imagery Dataset
-Dataset 2a comprises EEG recordings from nine subjects performing cued motor
-imagery tasks involving four distinct classes: left hand, right hand, feet, and tongue
-movements. The data was acquired using 22 EEG channels (filtered at 0.5-100 Hz,
-with notch filtering applied) and 3 EOG channels to monitor eye movement artifacts. The sampling rate was set at 250 Hz, ensuring adequate temporal resolution
-for motor imagery classification. The dataset includes labeled EEG segments corresponding to each motor imagery task, allowing for the analysis and classification of
-distinct motor imagery patterns across multiple subjects. \cite{tangermann2012review}.
-\item Dataset BCI IV 2b: 2-Class Motor Imagery Dataset
-Dataset 2b focuses on a simplified motor imagery task, involving only two classes:
-left hand and right hand movements. EEG data was collected from nine subjects
-using 3 bipolar EEG channels (filtered at 0.5-100 Hz, with notch filtering) and 3
-EOG channels. Similar to Dataset 2a, the sampling rate was maintained at 250
-Hz. Despite the reduced number of EEG channels, Dataset 2b offers essential data
-for analyzing motor imagery signals, with a particular focus on left and right hand
-movements. \cite{leeb2008graz2b}.
-\item Thinking Out Loud (ToL) Dataset
-The ToL dataset consists of EEG recordings collected from participants instructed
-to \textquotesingle think out loud\textquotesingle while performing specific cognitive tasks. The data sett includes
-multiple EEG channelsthat captureture brain activity during thought processing.
-Each participant engaged in 564 trials per condition, focusing on commands such as
-\textquotesingle Arriba/Up,\textquotesingle \textquotesingle Abajo/Down,\textquotesingle \textquotesingle Derecha/Right,\textquotesingle and \textquotesingle Izquierda/Left.\textquotesingle Data were
-acquired using a 136-channel BioSemi ActiveTwo system for 10 subjects. The ToL
-dataset is particularly valuable for decoding cognitive states, as it provides labeled
-data segments corresponding to distinct mental tasks. This data set is crucial for
-investigating the potential of EEG-based systems to recognize and classify cognitive
-processes associated with thinking patterns.\cite{nieto2022thinking}
+
+\item {Dataset BCI IV 2a: 4-Class Motor Imagery Dataset}
+
+Dataset 2a comprises EEG recordings from nine subjects performing cued motor imagery tasks involving four distinct classes: left hand, right hand, feet, and tongue movements. The data was acquired using 22 EEG channels (filtered at 0.5-100 Hz, with notch filtering applied) and 3 EOG channels to monitor eye movement artifacts. The sampling rate was set at 250 Hz, ensuring adequate temporal resolution for motor imagery classification. The dataset includes labeled EEG segments corresponding to each motor imagery task, allowing for the analysis and classification of distinct motor imagery patterns across multiple subjects. \cite{tangermann2012review}.
+
+\item{Dataset BCI IV 2b: 2-Class Motor Imagery Dataset}
+
+Dataset 2b focuses on a simplified motor imagery task, involving only two classes: left hand and right hand movements. EEG data was collected from nine subjects using 3 bipolar EEG channels (filtered at 0.5-100 Hz, with notch filtering) and 3 EOG channels. Similar to Dataset 2a, the sampling rate was maintained at 250 Hz. Despite the reduced number of EEG channels, Dataset 2b offers essential data for analyzing motor imagery signals, with a particular focus on left and right hand movements. \cite{leeb2008graz2b}.
+
+\item{Thinking Out Loud (ToL) Dataset}
+
+The ToL dataset consists of EEG recordings collected from participants instructed to "think out loud" while performing specific cognitive tasks. The data sett includes multiple EEG channelsthat captureture brain activity during thought processing. Each participant engaged in 564 trials per condition, focusing on commands such as ``Arriba/Up,'' ``Abajo/Down,'' ``Derecha/Right,'' and ``Izquierda/Left.'' Data were acquired using a 136-channel BioSemi ActiveTwo system for 10 subjects. The ToL dataset is particularly valuable for decoding cognitive states, as it provides labeled data segments corresponding to distinct mental tasks. This data set is crucial for investigating the potential of EEG-based systems to recognize and classify cognitive processes associated with thinking patterns.\cite{nieto2022thinking}
+
 \end{itemize}
-All three datasets are pivotal for exploring motor imagery and cognitive state
-classification using EEG signals and provide valuable benchmarks to evaluate the
-performance of machine learning and deep learning models in brain-computer interface
-(BCI) applications.
 
-\subsection{Data Preprocessing}
-The preprocessing of EEG data is a critical step to ensure the quality of the signals used
-for analysis. The primary goal of preprocessing is to clean the data by removing noise
-and artifacts, thereby enhancing the signal-to-noise ratio and making the data more
-suitable for subsequent analysis and modeling. In this study, a series of preprocessing steps were applied to the raw EEG recordings obtained from the aforementioned
-datasets. The preprocessing pipeline was implemented using the MNE-Python library
-\cite{gramfort2013meg}, which provided efficient methods for data inspection, artifact removal, filtering,
-and epoching.
-For the Thinking Out Loud dataset (136 channels), our EEG-DATNet architecture were evaluated using three configurations: a 4-second window with all 64 usable
-channels, a 0.7-second window with all 64 channels, and a 0.7-second window with 22
-channels selected for their relevance to inner speech. For BCI Competition IV Dataset
-2a, which only has 22 channels, we applied the 0.7-second/22-channel configuration.
-And for BCI Competition IV Dataset 2b, which provides just three EEG channels, no
-further channel reduction was needed—only its native 3-channel, 0.7-second epochs
-were used. These choices let us compare the impact of both time-window length and
-channel selection on decoding performance, while also ensuring that tasks recorded
-with fewer sensors are processed appropriately.
+All three datasets are pivotal for exploring motor imagery and cognitive state classification using EEG signals and provide valuable benchmarks to evaluate the performance of machine learning and deep learning models in brain-computer interface (BCI) applications.
 
-\subsubsection{Raw Data Inspection and Event Annotation}
-The first step in the preprocessing pipeline was to load the raw EEG data and perform
-a visual inspection to ensure data integrity. Then the event markers were processed
-provided in the separate TSV files, which indicated the onset and duration of each trial.
-The event onsets, originally in milliseconds, were converted into sample indices using
-the known sampling frequencies of each dataset. Each stimulus type (e.g., \textquotesingle child,\textquotesingle
-\textquotesingle father,\textquotesingle \textquotesingle daughter,\textquotesingle etc.) was assigned a unique event label, and these labels were
-used to create annotations marking the onset of each event within the continuous EEG
-data.
 
-\subsubsection{Channel Configuration and Referencing}
-Following the event annotation, the raw EEG data were configured to match the
-standard montages corresponding to each dataset. Channels that were either irrelevant
-to the study or not recorded (e.g., EXG1 to EXG6) were removed. After configuring
-the montage, an average reference was applied to the remaining EEG channels. This
-reference method normalizes the voltage across the scalp, it ensures that each channel
-is weighted equally during the analysis. Denoting the signal on channel i as xi (t), the
-re-referenced signal x\textquotesingle i (t) is
-N
 
-x\textquotesingle i (t) = xi (t) -\n
-1 X
-xj (t),
-N j=1
+\subsection{Data Preprocessing}\label{subsec2}
 
-where N is the total number of channels \cite{nunez2006electric}.
+The preprocessing of EEG data is a critical step to ensure the quality of the signals used for analysis. The primary goal of preprocessing is to clean the data by removing noise and artifacts, thereby enhancing the signal-to-noise ratio and making the data more suitable for subsequent analysis and modeling. In this study, a series of preprocessing steps were applied to the raw EEG recordings obtained from the aforementioned datasets. The preprocessing pipeline was implemented using the MNE-Python library \cite{Gramfort2013}, which provided efficient methods for data inspection, artifact removal, filtering, and epoching.
 
-Fig. 1 A schematic showing the positions of the 22 EEG channels retained for further analysis.
-These channels were selected because they are known to be involved in thinking processing, motor
-control, and language production.
+For the Thinking Out Loud dataset (136 channels), our EEG-DATNet architecture were evaluated using three configurations: a 4-second window with all 64 usable channels, a 0.7-second window with all 64 channels, and a 0.7-second window with 22 channels selected for their relevance to inner speech. For BCI Competition IV Dataset 2a, which only has 22 channels, we applied the 0.7-second/22-channel configuration. And for BCI Competition IV Dataset 2b, which provides just three EEG channels, no further channel reduction was needed—only its native 3-channel, 0.7-second epochs were used. These choices let us compare the impact of both time-window length and channel selection on decoding performance, while also ensuring that tasks recorded with fewer sensors are processed appropriately.
 
-\subsubsection{Noise Reduction through Filtering}
-To reduce noise in the EEG data, several filtering techniques were applied. A notch
-filter was first applied at 50 Hz and its harmonics (100 Hz and 150 Hz) to remove
-power line interference, which is commonly present in EEG data. A high-pass filter
-with a cutoff frequency of 0.5 Hz was then applied to eliminate low-frequency drifts.
-Finally, a low-pass filter with a cutoff frequency of 40 Hz was used to remove high-frequency noise and muscle artifacts, ensuring that only relevant brain activity was retained. This multi-stage filtering approach effectively cleans the EEG signals while preserving their essential characteristics for analysis.
+\subsubsection{Raw Data Inspection and Event Annotation}\label{subsec3}
 
-\subsubsection{Artifact Removal}
-Independent Component Analysis (ICA) was employed to identify and remove artifacts from the EEG data. ICA is a powerful signal processing technique that separates a multivariate signal into additive subcomponents, assuming that the source signals are statistically independent from each other. This method is particularly effective for isolating and removing common EEG artifacts such as eye blinks, eye movements, and muscle activity, which often manifest as independent components. By visually inspecting the ICA components and their corresponding time courses and topographic maps, artifactual components were identified and excluded from the data, resulting in cleaner EEG signals for subsequent analysis.
+The first step in the preprocessing pipeline was to load the raw EEG data and perform a visual inspection to ensure data integrity. Then the event markers were processed provided in the separate TSV files, which indicated the onset and duration of each trial. The event onsets, originally in milliseconds, were converted into sample indices using the known sampling frequencies of each dataset. Each stimulus type (e.g., ``child,'' ``father,'' ``daughter,'' etc.) was assigned a unique event label, and these labels were used to create annotations marking the onset of each event within the continuous EEG data.
 
-\subsubsection{Epoching and Baseline Correction}
-After artifact removal, the continuous EEG data were segmented into epochs, which are short, fixed-duration segments of EEG data time-locked to specific events or stimuli. For each trial, epochs were extracted from 0.5 seconds before the stimulus onset to 4.0 seconds after, capturing the relevant brain activity associated with the cognitive tasks. A baseline correction was then applied to each epoch, where the mean amplitude of a pre-stimulus baseline period (e.g., -0.5 to 0 seconds relative to stimulus onset) was subtracted from the entire epoch. This correction removes any DC offset and ensures that the EEG activity is relative to the baseline, facilitating comparison across different trials and subjects.
+% \subsubsection{Channel Configuration and Referencing}\label{subsec4}
+
+% Following the event annotation, the raw EEG data were configured to match the standard montages corresponding to each dataset. Channels that were either irrelevant to the study or not recorded (e.g., EXG1 to EXG6) were removed. After configuring the montage, an average reference was applied to the remaining EEG channels. This reference method normalizes the voltage across the scalp, ensuring that each channel is weighted equally during the analysis.
+
+\subsubsection{Channel Configuration and Referencing}\label{subsec4}
+
+Following the event annotation, the raw EEG data were configured to match the standard montages corresponding to each dataset. Channels that were either irrelevant to the study or not recorded (e.g., EXG1 to EXG6) were removed. After configuring the montage, an average reference was applied to the remaining EEG channels. This reference method normalizes the voltage across the scalp, it ensures that each channel is weighted equally during the analysis.  Denoting the signal on channel \(i\) as \(x_i(t)\), the re-referenced signal \(x_i'(t)\) is
+\[
+  x_i'(t)\;=\;x_i(t)\;-\;\frac{1}{N}\sum_{j=1}^{N}x_j(t),
+\]
+where \(N\) is the total number of channels \cite{Ferree2006}.  
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.5\linewidth]{channels kept with position.png}
+    \caption{A schematic showing the positions of the 22 EEG channels retained for further analysis. These channels were selected because they are known to be involved in thinking processing, motor control, and language production.}
+    \label{fig:channels kept with position}
+\end{figure}
+
+% \subsubsection{Noise Reduction through Filtering}\label{subsec5}
+
+% To reduce noise in the EEG data, we applied several filtering techniques. A notch filter was first applied at 50 Hz and its harmonics (100 Hz and 150 Hz) to remove power line interference, which is commonly present in EEG data. A high-pass filter with a cutoff frequency of 0.5 Hz was then applied to eliminate low-frequency drifts. Finally, a bandpass filter with a range of 0.5–40 Hz was used to retain the frequency range most relevant for these tasks, while removing unwanted low and high-frequency noise \cite{Widmann2015}.
+
+\subsubsection{Noise Reduction through Filtering}\label{subsec5}
+
+To reduce noise in the EEG data, several filtering techniques were applied. A notch filter was first applied at 50 Hz and its harmonics (100 Hz and 150 Hz) to remove power line interference, which is commonly present in EEG data. A high-pass filter with a cutoff frequency of 0.5 Hz was then applied to eliminate low-frequency drifts. Finally, a bandpass filter with a range of 0.5–40 Hz was used to retain the frequency range most relevant for these tasks, while removing unwanted low and high-frequency noise \cite{Widmann2015}.  If \(X(f)\) is the Fourier transform of the raw signal \(x(t)\) and \(H(f)\) the filter’s frequency response, the filtered signal \(y(t)\) is given by
+\[
+  y(t)
+  = \mathcal{F}^{-1}\bigl\{H(f)\,X(f)\bigr\},
+\]
+where
+\[
+  H(f) =
+    \begin{cases}
+      1, & 0.5 \le |f| \le 40,\\
+      0, & \text{otherwise.}
+    \end{cases}
+\]
+
+
+\subsubsection{Artifact Removal Using ICA}\label{subsec6}
+
+Independent Component Analysis (ICA) was used to remove artifacts from the EEG signal, particularly those caused by eye movements. In the absence of dedicated electrooculography (EOG) channels, the Fp1 electrode was used as a surrogate for detecting ocular artifacts. ICA decomposition, as implemented in MNE-Python, identified and removed components corresponding to eye blinks and other artifacts \cite{Jung2000, Delorme2004}. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{ICA reduction before after.png}
+    \caption{Visualization of artifact removal from frontal EEG channels. The signals before (blue) and after (yellow) ICA processing are compared to illustrate the reduction of ocular artifacts.}
+    \label{fig:ICA reduction before after}
+\end{figure}
+
+Figure~\ref{fig:ICA reduction before after} shows the raw EEG signal before (blue) and after (yellow) ICA processing. As seen in the figure, ICA effectively reduces ocular artifacts, ensuring that the remaining signal is cleaner and more reliable for subsequent analysis.
+
+\subsubsection{Epoching the Data}\label{subsec7}
+
+Once the signal was cleaned, the data were segmented into epochs. Then the dataset were prepared in three configurations for Thinking Out Loud (64 channels) and, in abbreviated form, for the other two datasets:
+
+\begin{itemize}
+    \item The first configuration used all 64 EEG channels with a 4-second time window.
+    \item The second configuration used all 64 EEG channels with a 0.7-second time window.
+    \item The third configuration used 22 selected EEG channels (Figure~\ref{fig:channels kept with position}), focusing on regions most associated with inner speech, with a 0.7-second time window.
+\end{itemize}
+
+For BCI IV-2a (22-channel data), only the 0.7-second/22-channel configuration was applied, and for BCI IV-2b (3-channel data), the native 3-channel, 0.7-second epochs were used. The epoching for the first configuration spanned 0 to 4s, while for the shorter windows it spanned –0.2 to 0.5s, with baseline correction over –0.2 to 0s \cite{Kappenman2021}. This allowed us to assess how window length and channel count affect decoding performance.
+
+
+\subsubsection{Comparing Raw vs. Processed Data}\label{subsec8}
+
+Figure~\ref{fig:preprocess comparison} shows a comparison between the raw EEG signal and the processed signal. The raw data (left panel) contain significant noise and artifacts, including power line interference and eye movement-related noise. After applying the preprocessing steps, the processed signal (right panel) is much cleaner, demonstrating the effectiveness of the preprocessing pipeline in improving data quality.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{preprocess comparison.png}
+    \caption{Comparison between the original raw signal and the processed signal. The left panel shows the raw data before preprocessing, while the right panel shows the cleaned data after applying the various preprocessing steps, including filtering, ICA artifact removal, and epoching. This comparison emphasizes the effectiveness of preprocessing for ensuring clean, reliable data for subsequent analysis.}
+    \label{fig:preprocess comparison}
+\end{figure}
+
+\subsubsection{ERPs for Different Configurations}\label{subsec9}
+
+
+% To evaluate the impact of different configurations on the EEG signal, we computed the average event-related potentials (ERPs) for each condition \cite{Picton2000,Luck2014}. Figure~\ref{fig:Averaged ERP 22 channels vs all channels} compares the ERPs obtained using all 64 channels over a 4-second window (top panel), 64 EEG channels over a 0.7-second window (middle panel), and the 22 selected channels over a 0.7-second window (bottom panel) for one subject from Thinking Out Loud dataset \cite{nieto2022thinking} \cite{Picton2000}. This figure shows how the complexity reduces though the first one have huge information, but for our task
+
+To evaluate the impact of different configurations on the EEG signal, the average event-related potentials (ERPs) were computed for each configuration \cite{Picton2000,Luck2014}. Figure~\ref{fig:Averaged ERP 22 channels vs all channels} compares, for one subject from the Thinking Out Loud dataset \cite{nieto2022thinking}, the ERPs obtained with: (1) all 64 channels over a 4s window (top panel), (2) all 64 channels over a 0.7s window (middle panel), and (3) the 22 selected channels over a 0.7s window (bottom panel). The top plot is rich in detail but complex; the middle plot is shorter in time yet still crowded by overlapping traces; the bottom plot, using only our 22 most informative electrodes, shows substantially cleaner waveforms while preserving the same key peaks and overall morphology. This demonstrates that, by focusing on channels known to be critical for inner speech processing \cite{PerroneBertolotti2014}. Thus, the complexity of the data reduced dramatically with minimal loss of task-relevant information. Using this most efficient configuration, our model faced less complexity during training without sacrificing accuracy.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.7\linewidth]{Averaged ERP 22 channels vs all channels.png}
+    \caption{Comparison of averaged ERP waveforms across different time windows and channel selections. The top panel shows ERPs over a 4-second post-stimulus window using 64 EEG channels. The middle panel shows ERPs within a 0.7-second window using the same channels. The bottom panel uses the same 0.7-second window but includes only 22 channels from regions associated with the tasks. This figure highlights how the length of the time window and the number of channels used can affect the ERP signal. The top and middle panels demonstrate that increasing the time window captures more information, while the bottom panel shows that the 22-channel configuration is still effective for capturing relevant brain activity.}
+    \label{fig:Averaged ERP 22 channels vs all channels}
+\end{figure}
+
+The figure demonstrates that while using a longer time window captures more information, the shorter 0.7-second window is still effective in capturing the essential neural responses for the tasks. Notably, the 22-channel configuration maintains the quality of the ERP, suggesting that these channels are sufficient to capture the critical brain activity.
+
+\subsubsection{Topographical Maps for EEG classification }\label{subsec10}
+
+Finally, Figure~\ref{fig:topomap per class} presents topographical maps for one subject, showing the spatial distribution of EEG activity during the tasks. These maps represent the average signal across all trials of a given word class and highlight the brain regions most actively involved in processing different categories. Topographical visualization follows established ERP mapping conventions \cite{Kappenman2021,Luck2014}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{topomap per class1.png}
+    \caption{Topographical maps per class for one subject, showing the spatial distribution of EEG activity during the tasks. Each map represents the average signal across all trials of a given word class. The figure highlights the brain regions most actively involved in the processing of EEG signal for each stimulus, providing a visual representation of neural activity across different categories.}
+    \label{fig:topomap per class}
+\end{figure}
+
+The preprocessing pipeline successfully improved the quality of the raw EEG data by applying a series of steps, including filtering, ICA artifact removal, and epoching. The use of three different configurations allowed us to compare the performance of EEG decoding using various channel selections and time windows. The results, as shown in the figures, indicate that the 22-channel configuration is highly effective for capturing brain activity associated with thinking processing, motor control, and language production, while also offering the advantage of reduced data complexity. Overall, the preprocessing steps significantly enhanced the signal quality, making the data more suitable for further analysis and modeling.
+
+
+
+
+% \begin{figure}[htbp]
+%     \centering
+%     \includegraphics[width=1\linewidth]{ERP pattern for each word.png}
+%     \caption{Comparison of average ERP patterns for each word/class across 22 channels with the processed EEG signal for a single instance. This figure provides insights into the consistency of ERP responses across different inner speech stimuli. By observing the differences between word categories, we can identify which brain regions are most active during specific inner speech tasks.}
+%     \label{fig:ERP pattern for each word}
+% \end{figure}
+
+
+% \subsubsection{Data Preprocessing and Notation}
+% Let \(\mathbf{X} \in \mathbb{R}^{C \times T}\) represent a preprocessed EEG recording, where \(C\) is the number of channels (e.g., \(C=19\)) and \(T\) is the number of temporal samples (e.g., \(T=359\)). The class label is encoded as a one-hot vector \(\mathbf{y} \in \mathbb{R}^{K}\), with \(K=8\) classes. In our experiments, the data is normalized over the temporal dimension, which has been shown to improve network convergence and performance \cite{lotte2018review}.
 
 \subsection{EEG-DATNet Architecture}
-EEG-DATNet is a novel hybrid deep learning architecture designed for robust EEG signal decoding. It integrates multi-scale temporal convolutions, spatial convolutions, dual statistical pooling, a biologically inspired spiking activation function, and a dual-attention transformer encoder. The architecture is designed to capture intricate spatiotemporal dynamics by extracting frequency-specific features across multiple temporal resolutions, modeling inter-channel functional connectivity, and selectively attending to salient temporal segments and informative feature channels. The overall architecture of EEG-DATNet is illustrated in Fig. 2.
 
-\subsubsection{Multi-Scale Temporal Convolution Module}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.47\linewidth]{datnet.pdf}
+    \caption{Schematic of the dual attention module in the EEG-DATNet architecture. The module integrates spatial attention to emphasize relevant temporal segments and channel attention to highlight informative feature channels, enhancing the model's ability to capture complex spatiotemporal dynamics in EEG signals. The combined attention mechanisms produce a refined feature representation for subsequent transformer-based processing.}
+    \label{fig:Dual Attention Module Architecture}
+\end{figure}
 
-The multi-scale temporal convolution module is designed to capture EEG signal dynamics across varying temporal resolutions. This module employs parallel convolutional layers with different kernel sizes, allowing the model to learn both fast and slow-changing patterns in the data. Each convolutional branch processes the input EEG signals at a different temporal scale, extracting features that are relevant to specific time durations. The outputs from these parallel branches are then concatenated, providing a rich, multi-scale representation of the temporal dynamics. This approach ensures that the model is sensitive to a wide range of temporal features, from transient events to sustained brain activity patterns.
 
-\subsubsection{Spatial Convolution Module}
+EEG-DATNet is a hybrid deep learning framework designed to model the complex temporal and spatial dependencies of EEG signals for brain state classification. EEG data pose unique challenges due to their non-stationary nature, rich temporal dynamics, and intricate inter-channel relationships. To address these issues, EEG-DATNet integrates five synergistic components.
 
-The spatial convolution module is responsible for extracting spatial features from the EEG signals, capturing the relationships between different EEG channels. This module typically consists of convolutional layers that operate across the channel dimension, learning spatial filters that highlight relevant brain regions or networks. By applying convolutions across channels, the model can identify spatially localized patterns of brain activity that are indicative of specific cognitive states or motor intentions. This module helps to reduce the dimensionality of the spatial data while preserving important topographical information.
+First, the multiscale temporal convolution module consists of four parallel 2D convolutions with kernel lengths of 15, 25, 51, and 65. These capture a range of temporal frequencies and extract frequency-specific temporal characteristics, inspired by filter bank approaches used in EEG processing \cite{schirrmeister2017deep}.
 
-\subsubsection{Dual Statistical Pooling}
+Next, a spatial convolution layer performs depthwise convolution across EEG channels to capture spatial correlations among electrodes, modeling interregional brain connectivity \cite{lawhern2018eegnet}.
 
-EEG-DATNet incorporates a dual statistical pooling mechanism, combining both average pooling and variance pooling. Average pooling is a standard technique that reduces the dimensionality of feature maps by taking the average value within a given window, providing a robust representation of the overall activity. Variance pooling, on the other hand, explicitly represents the variability or dispersion of the signal within a given window. This is particularly important in EEG analysis, as changes in signal variability (e.g., event-related desynchronization/synchronization) can be highly indicative of underlying neurophysiological processes. By combining both average and variance pooling, EEG-DATNet captures a more comprehensive statistical representation of the EEG signals, enabling it to identify subtle differences between classes that might be missed by traditional pooling methods.
+The dual statistical pooling mechanism applies both average pooling and variance pooling to the temporal feature maps. While the average captures central tendencies, the variance pooling (followed by a logarithmic activation) encodes signal dispersion, which is essential for handling nonstationary EEG dynamics.
 
-\subsubsection{Spiking-Inspired Activation Function}
+To further enhance temporal and spatial feature learning, a stack of transformer encoder blocks is introduced. These include a dual attention mechanism: spatial attention across the temporal axis and channel attention across features. This design allows the network to focus on informative segments in the signal and has shown effectiveness in neural decoding tasks \cite{vaswani2017attention, xu2022transformer}.
 
-To improve temporal sparsity and energy efficiency, a spiking-inspired activation function is integrated into EEG-DATNet. This activation function mimics the behavior of biological neurons, which fire discrete spikes only when their membrane potential reaches a certain threshold. This event-driven processing leads to sparse activations, meaning that many neurons remain inactive for a given input, thereby reducing computational load and energy consumption. The use of a spiking-inspired activation function also enhances the biological plausibility of the model, aligning its computational principles more closely with those of the brain. The specific form of this activation function and its surrogate gradient for backpropagation are detailed in Section 2.3.
+Finally, the outputs from the average and variance pathways are fused via a convolutional encoder and passed through an ELU activation function. The ELU introduces a spiking-inspired nonlinearity, mimicking neuronal firing behavior and encouraging sparse, salient representations, concepts often explored in spiking neural networks \cite{gerstner2014neuronal}.
+
+This architecture enables EEG-DATNet to effectively extract high-resolution temporal features and model inter-channel spatial dependencies, supporting improved performance across diverse EEG classification tasks.
+
+\begin{table}[!ht]
+\centering
+\caption{Proposed Model Architecture}
+\label{tab:architecture}
+\begin{tabular}{|l|c|c|}
+\hline
+\textbf{Layer} & \textbf{Output Shape} & \textbf{Parameters} \\
+\hline
+Input Layer & (1, 1000, 22) & - \\
+\hline
+Conv2D (1, 15, 32) & (32, 1000, 22) & 1,056 \\
+\hline
+Conv2D (1, 25, 32) & (32, 1000, 22) & 1,856 \\
+\hline
+Conv2D (1, 51, 32) & (32, 1000, 22) & 3,232 \\
+\hline
+Conv2D (1, 65, 32) & (32, 1000, 22) & 4,032 \\
+\hline
+BatchNorm2D & (32, 1000, 22) & 64 \\
+\hline
+Spatial Conv2D (22, 1) & (32, 1000, 22) & 704 \\
+\hline
+AvgPool1D & (32, 64) & - \\
+\hline
+VarPoold & (32, 64) & - \\
+\hline
+\textbf{DualAttention} & (32, 64, 32) & 10,240 \\
+\hline
+TransformerEncoder (4 layers) & (4, 64, 32) & 35,072 \\
+\hline
+Conv2D (122, 64) & (64, 1, 1) & 7,808 \\
+\hline
+Flatten & (64) & - \\
+\hline
+Dense (4 - Softmax) & (4) & 260 \\
+\hline
+\end{tabular}
+\end{table}
+
+
+\subsubsection{Multi-scale Temporal Convolution}
+EEG signals contain oscillatory components across multiple frequency bands (delta: 0.5--4Hz, theta: 4--8Hz, alpha: 8--13Hz, beta: 13--30Hz, gamma: $>$ 30Hz), each associated with distinct cognitive processes. To capture these diverse temporal dynamics, a multi-scale temporal convolution module was implemented  consisting of four parallel branches with progressively increasing kernel sizes. 
+
+Given an input EEG tensor $\mathbf{X} \in \mathbb{R}^{B \times C \times T}$, where $B$ is the batch size, $C$ the number of channels, and $T$ the temporal length, the output of the $i$-th temporal convolution branch is:
+
+\begin{equation}
+\mathbf{X}_i = \text{Conv}^{\text{temp}}_{1 \times k_i}(\mathbf{X}), \quad i \in \{1,2,3,4\}
+\end{equation}
+
+where $k_i \in \{15, 25, 51, 65\}$ are the kernel sizes designed to span temporal windows of approximately 60ms, 100ms, 200ms, and 260ms respectively, assuming a sampling rate of 250Hz. These temporal resolutions enable the network to extract both fast transients (e.g., event-related potentials) and slower oscillatory patterns (e.g., alpha or theta rhythms). The resulting feature maps are concatenated along the filter dimension to yield a multi-scale temporal representation:
+
+\begin{equation}
+\mathbf{X}_{\text{temp}} = \text{Concat}(\mathbf{X}_1, \mathbf{X}_2, \mathbf{X}_3, \mathbf{X}_4)
+\end{equation}
+
+This design facilitates simultaneous extraction of features at multiple temporal scales, enriching the representation of the signal's spectro-temporal structure without requiring explicit frequency-domain transforms.
+
+
+\subsubsection{Spiking Activation}
+
+To introduce biologically inspired non-linearity into the network, a spiking activation mechanism was incorporated immediately after the batch-normalized multi-scale temporal feature maps. This module emulates the firing behavior of biological neurons using a threshold-based binary activation function. \cite{Stanojevic2024-lf}
+
+Formally, given the normalized feature map \(\tilde{\mathbf{X}} \in \mathbb{R}^{D \times C \times T}\), the spiking activation function \(S(\cdot; \theta)\) is defined as:
+\[
+S(x; \theta) = 
+\begin{cases}
+1, & \text{if } x \ge \theta, \\
+0, & \text{otherwise},
+\end{cases}
+\]
+where \(\theta\) is a predefined firing threshold. The output \(\mathbf{Z} = S(\tilde{\mathbf{X}}; \theta)\) is a binary tensor representing neuronal spike events.
+
+Since the function \(S(x; \theta)\) is non-differentiable, its gradient was approximated during backpropagation using a surrogate derivative. Specifically, gradients are passed only through the narrow band around the threshold \(\theta\), defined by:
+\[
+\frac{\partial S}{\partial x} \approx 
+\begin{cases}
+1, & \text{if } |x - \theta| \le \delta, \\
+0, & \text{otherwise},
+\end{cases}
+\]
+where \(\delta\) is a small constant controlling the surrogate window. This technique allows the network to be trained using standard gradient-based optimization while preserving the binary spiking behavior during inference.
+
+By incorporating this spiking mechanism, the model gains temporal sparsity and enhanced neuro-inspired processing, consistent with findings from spiking neural network literature \cite{maass2002real,neftci2019surrogate}.
+
+\subsubsection{Spatial Convolution}
+
+Following temporal feature extraction, a spatial convolution operation was applied to capture inter-channel dependencies across EEG electrodes. This step is essential for modeling spatial patterns of brain activity and functional connectivity between cortical regions. The spatial convolution is performed across all channels for each temporal feature map:
+
+\begin{equation}
+\mathbf{X}_{\text{spat}} = \text{ELU}(\text{BN}(\text{Conv2D}_{C \times 1}(\mathbf{X}_{\text{temp}}))),
+\end{equation}
+
+where \(\text{Conv2D}_{C \times 1}\) denotes a convolutional layer with a kernel spanning all \(C\) channels and a single temporal step, \(\text{BN}\) represents batch normalization to stabilize learning and reduce internal covariate shift, and \(\text{ELU}\) (Exponential Linear Unit) introduces non-linearity while maintaining smooth gradients for negative inputs.
+
+This operation enables the model to learn spatial filters that reflect patterns of synchronization and desynchronization across brain regions, which are often indicative of specific cognitive states or neurological conditions. The resulting feature maps encode both temporal dynamics and spatial structures of the EEG signals.
+\subsubsection{Dual Pooling Module}
+
+A key component of our architecture is the dual pooling module, designed to extract complementary statistical features from the temporally and spatially processed EEG representations. Traditional approaches often rely solely on average pooling, which captures the central tendency of the signal but neglects its variability. However, in EEG signals, temporal fluctuations are often indicative of cognitive or pathological states~\cite{craik2019deep, roy2019chronnectome}. To address this, a dual pooling strategy was introduced that combines average and variance pooling.
+
+\paragraph{Average Pooling.} Given an input feature map \(\mathbf{Z} \in \mathbb{R}^{C \times T}\), the average pooling operation computes the mean over each non-overlapping temporal window of size \(k\) with stride \(s\):
+
+\begin{equation}
+\mathbf{P}_{\text{avg}}(j) = \frac{1}{k} \sum_{i=0}^{k-1} \mathbf{Z}(:,\, j \cdot s + i), \quad j = 0, \dots, L-1,
+\end{equation}
+
+where \(L = \left\lfloor \frac{T - k}{s} \right\rfloor + 1\) is the number of pooling steps.
+
+\paragraph{Variance Pooling.} To capture local signal variability, the variance pooling is defined as:
+
+\begin{equation}
+\mathbf{P}_{\text{var}}(j) = \log \left( \max \left( \min \left( \text{Var} \left( \mathbf{Z}(:,\, j \cdot s : j \cdot s + k - 1) \right), 10^6 \right), 10^{-6} \right) \right),
+\label{eq:varpool}
+\end{equation}
+
+where \(\text{Var}(\cdot)\) computes the element-wise variance across the temporal dimension, and \(\log\) applies a logarithmic transformation to stabilize training and compress the dynamic range. The clamping via \(\min\) and \(\max\) prevents extreme variance values that could lead to numerical instability during optimization.
+
+This dual pooling mechanism enables the model to simultaneously retain information about the average level of activity and the signal's temporal variability, which together offer a richer statistical summary of EEG dynamics. Similar ideas of incorporating higher-order statistics have shown promise in time-series analysis and EEG-based deep learning~\cite{lotte2018review, lawhern2018eegnet}.
 
 \subsubsection{Dual Attention Transformer Encoder}
+The cornerstone of our EEG-DATNet architecture is the innovative dual attention transformer encoder shown in Figure \ref{fig:Dual_Attention_Module}, which represents a significant advancement over conventional transformer designs. While traditional transformers rely solely on self-attention mechanisms, our dual attention approach integrates both spatial attention (focusing on the sequence dimension) and channel attention (focusing on the feature dimension), allowing the model to simultaneously attend to salient temporal patterns and important feature channels.
 
-The dual attention transformer encoder is a core component of EEG-DATNet, designed to selectively attend to salient temporal segments and informative feature channels. This module combines two types of attention mechanisms:
+The transformer encoder begins by projecting the input features into query ($\mathbf{Q}$), key ($\mathbf{K}$), and value ($\mathbf{V}$) representations through learnable linear transformations:
 
-\begin{itemize}
-\item Spatial Attention: This mechanism focuses on identifying the most relevant time points or segments within the EEG signal. By assigning higher weights to important temporal features, spatial attention allows the model to prioritize information that is most discriminative for the classification task.
-\item Channel Attention: This mechanism reweights the feature dimensions (EEG channels) based on their importance. By emphasizing channels that carry more relevant information and suppressing less informative ones, channel attention enhances the model\textquotesingle s focus on key brain regions or networks. The combination of spatial and channel attention enables EEG-DATNet to dynamically adjust its focus across both time and space, leading to more robust and interpretable feature extraction. The transformer encoder then processes these attended features, capturing long-range dependencies and complex interactions within the EEG data.
-\end{itemize}
 
-\section{Results and Discussion}
 
-\subsection{Contextualizing ToL Accuracy (43.68\%)}
+\begin{equation}
+\begin{aligned}
+\mathbf{Q} &= \mathbf{W}_Q\mathbf{X} \\
+\mathbf{K} &= \mathbf{W}_K\mathbf{X} \\
+\mathbf{V} &= \mathbf{W}_V\mathbf{X}
+\end{aligned}
+\end{equation}
 
-The achieved accuracy of 43.68\% on the Thinking Out Loud (ToL) dataset, while seemingly modest, is significant within the context of inner speech decoding from non-invasive EEG. This performance is particularly noteworthy when compared to theoretical limits and human-level performance benchmarks, which are often derived from invasive methods or simpler paradigms. Decoding inner speech from EEG is inherently challenging due to the low signal-to-noise ratio of EEG, the subtle nature of imagined speech signals, and the high variability across individuals. Chance level performance for a 4-class classification task is 25\%. Our result of 43.68\% demonstrates a substantial improvement over chance, indicating that EEG-DATNet effectively extracts meaningful patterns related to inner speech.
+where $\mathbf{W}_Q, \mathbf{W}_K, \mathbf{W}_V \in \mathbb{R}^{d_{\text{model}} \times d_k}$ are learnable parameter matrices, and $d_{\text{model}}$ and $d_k$ denote the model dimension and key dimension, respectively.
 
-\subsubsection{Theoretical Limits and Alternative Modalities}
+\begin{figure*}[h]
+    \centering
+    \includegraphics[width=1\linewidth]{New.drawio.pdf}
+    \caption{Diagram of the Dual-Channel Attention Module in EEG-DATNet. This figure illustrates the architecture of the dual-attention mechanism, which integrates channel attention and spatial attention to enhance feature representation in EEG signal decoding. The module processes three inputs: query (b, n, d), key (b, n, d), and value (b, n, d), where b is the batch size, n is the sequence length, and d is the feature dimension.}
+    \label{fig:Dual_Attention_Module}
+\end{figure*}
 
-Research in decoding covert speech from EEG is still in its early stages, and establishing definitive theoretical limits is complex. However, studies suggest that non-invasive EEG-based decoding of complex cognitive states like inner speech is inherently limited by the spatial resolution and signal fidelity of EEG. Alternative modalities, such as functional Near-Infrared Spectroscopy (fNIRS) or invasive methods like electrocorticography (ECoG) and single-neuron recordings, offer higher spatial resolution or direct neural access, often yielding higher decoding accuracies. For instance, ECoG-based decoding of imagined speech has shown accuracies significantly higher than those typically achieved with EEG, sometimes exceeding 90\% for simpler tasks. While fNIRS offers better spatial resolution than EEG and is non-invasive, its temporal resolution is lower, making it less suitable for capturing rapid neural dynamics. The 43.68\% accuracy with EEG-DATNet, therefore, represents a strong performance within the constraints of non-invasive EEG for a complex multi-class inner speech task.
+The dual attention mechanism, which represents the primary novelty of our architecture, consists of two complementary attention pathways: spatial attention and channel attention. The spatial attention mechanism is designed to focus on relevant temporal segments or sequences within the EEG signal, capturing event-related dynamics and temporal dependencies. Mathematically, spatial attention is formulated as follows:
 
-\subsubsection{Subject-Wise Performance}
+\begin{equation}
+\mathbf{V}_{\text{spatial}} = \mathbf{V}_{\text{reshaped}} \odot \sigma\left(\mathbf{W}_2 \cdot \text{ReLU}(\mathbf{W}_1 \cdot \mathbf{V}_{\text{reshaped}})\right)
+\end{equation}
 
-(This section will include a table similar to Tables 2-3, presenting subject-wise performance results for the ToL dataset. This will allow for an assessment of inter-subject variability and highlight subjects for whom the model performed particularly well or poorly.)
+where $\mathbf{V}_{\text{reshaped}} \in \mathbb{R}^{B \times N \times (H \cdot D)}$ is the value tensor reshaped to apply attention across the sequence dimension ($N$ represents the sequence length, $H$ is the number of attention heads, and $D$ is the dimension per head), $\sigma$ denotes the sigmoid activation function that transforms the attention weights to the range $[0,1]$, $\mathbf{W}_1 \in \mathbb{R}^{(H \cdot D) \times \frac{(H \cdot D)}{2}}$ and $\mathbf{W}_2 \in \mathbb{R}^{\frac{(H \cdot D)}{2} \times (H \cdot D)}$ are learnable parameters of the spatial attention module, ReLU is the rectified linear unit activation function, and $\odot$ represents element-wise multiplication. This operation effectively assigns different importance weights to different temporal segments of the signal, allowing the model to focus on diagnostically relevant events while suppressing irrelevant or noisy segments.
 
-\subsection{Benchmark Against Modern SOTA}
+Complementing spatial attention, the channel attention mechanism emphasizes important feature channels that correspond to specific frequency components or spatial patterns in the EEG signal. The channel attention is mathematically expressed as:
 
-(This section will include quantitative comparisons with recent state-of-the-art models, especially EEG Conformer and FBCSP++. It will analyze if the proposed dual-attention mechanism outperforms spatial-temporal attention in EEG Conformer.)
+\begin{equation}
+\mathbf{V}_{\text{channel}} = \mathbf{V} \odot \sigma\left(\mathbf{W}_4 \cdot \text{ReLU}(\mathbf{W}_3 \cdot \bar{\mathbf{V}})\right)
+\end{equation}
 
-\subsection{Quantifying Computational Efficiency}
+where $\bar{\mathbf{V}} \in \mathbb{R}^{B \times 1 \times d_{\text{model}}}$ is the mean of $\mathbf{V}$ in the sequence dimension, creating a global representation of the feature channels, $\mathbf{W}_3 \in \mathbb{R}^{d_{\text{model}} \times \frac{d_{\text{model}}}{2}}$ and $\mathbf{W}_4 \in \mathbb{R}^{\frac{d_{\text{model}}}{2} \times d_{\text{model}}}$ are the advanceable parameters of the channel attention module. This mechanism enables adaptive feature selection by emphasizing channels that contain task-relevant information while suppressing less informative ones.
 
-(This section will include metrics such as FLOPs, inference latency, and memory footprint for EEG-DATNet and baselines. It will compare with lightweight models like EEGNet to assess suitability for real-time or embedded BCI.)
+The outputs from these complementary attention mechanisms are combined to create a dual-attentive representation:
 
-\subsection{Spiking Activation Module Analysis}
+\begin{equation}
+\mathbf{V}_{\text{dual}} = \mathbf{V}_{\text{spatial}} + \mathbf{V}_{\text{channel}}
+\end{equation}
 
-(This section will quantify sparsity (e.g., \% of zero activations) compared to standard activations like ReLU/ELU. It will discuss energy efficiency and biological plausibility, and add details about the surrogate gradient function ($\delta$ in Eq. 7).)
+This dual-attentive value tensor is then used in the standard attention operation:
 
-\subsection{Evaluating Data Efficiency}
+\begin{equation}
+\text{Attention}(\mathbf{Q}, \mathbf{K}, \mathbf{V}_{\text{dual}}) = \text{softmax}\left(\frac{\mathbf{Q}\mathbf{K}^T}{\sqrt{d_k}}\right)\mathbf{V}_{\text{dual}}
+\end{equation}
 
-(This section will analyze performance on reduced training data (e.g., 50\% of samples). It will assess cross-subject generalization using a leave-one-subject-out strategy or few-shot fine-tuning.)
+where the softmax operation normalizes the attention scores, and the scaling factor $\sqrt{d_k}$ prevents the gradients from becoming excessively small during backpropagation.
 
-\subsection{Improving Clinical and Real-World Relevance}
+Our dual attention mechanism offers several advantages over conventional self-attention. First, it enables the model to simultaneously attend to important temporal segments and feature channels, providing a more comprehensive attentional focus. Second, it reduces computational complexity by factorizing the attention operation into spatial and channel components. Third, it introduces inductive biases that are specifically tailored to EEG data, where both temporal dynamics and spectral characteristics are diagnostically relevant. Finally, the dual attention approach enhances interpretability by providing separate attention maps for temporal segments and feature channels, which can be visualized to gain insights into the model's decision-making process.
 
-(This section will include confusion matrices, especially for ToL to illustrate errors (e.g., \textquotesingle left\textquotesingle vs. \textquotesingle right\textquotesingle ).
-Show attention maps for misclassified samples (e.g., extend Fig. 5).
-Discuss the feasibility of real-time deployment with online EEG noise, wearable hardware, and 22-channel setups.
-Interpret whether variance pooling reflects neurophysiological variability (e.g., ERD/ERS).)
+The complete transformer encoder layer integrates this dual attention mechanism with a position-wise feed-forward network:
 
-\bibliography{sn-bibliography}
+\begin{equation}
+\begin{aligned}
+\mathbf{X}' &= \mathbf{X} + \text{DualAttention}(\text{LayerNorm}(\mathbf{X})) \\
+\mathbf{X}'' &= \mathbf{X}' + \text{FFN}(\text{LayerNorm}(\mathbf{X}'))
+\end{aligned}
+\end{equation}
+
+where LayerNorm denotes layer normalization, which stabilizes the hidden state dynamics, and FFN is a two-layer feed-forward network with GELU (Gaussian Error Linear Unit) activation:
+
+\begin{equation}
+\text{FFN}(\mathbf{X}) = \mathbf{W}_6 \cdot \text{GELU}(\mathbf{W}_5 \cdot \mathbf{X})
+\end{equation}
+
+with $\mathbf{W}_5 \in \mathbb{R}^{d_{\text{model}} \times d_{\text{ff}}}$ and $\mathbf{W}_6 \in \mathbb{R}^{d_{\text{ff}} \times d_{\text{model}}}$ being the parameters of the feed-forward network, and $d_{\text{ff}}$ representing the inner dimension of the feed-forward network.
+
+By stacking multiple such encoder layers, EEG-DATNet progressively refines the feature representations, capturing increasingly abstract patterns and long-range dependencies in the EEG signals. This hierarchical processing enables the model to effectively disentangle the complex spatiotemporal dynamics of brain activity, leading to superior classification performance across a wide range of EEG-based tasks.
+
+\subsubsection{Classification Head}
+
+After processing by the transformer encoder blocks, the outputs from the average pooling and variance pooling branches are concatenated and passed through a convolutional encoder to integrate complementary statistical representations:
+
+\begin{equation}
+\mathbf{X}_{\text{combined}} = \text{Concat}(\mathbf{X}_{\text{avg}}^{\text{transformed}}, \mathbf{X}_{\text{var}}^{\text{transformed}})
+\end{equation}
+
+\begin{equation}
+\mathbf{X}_{\text{encoded}} = \text{ConvEncoder}(\mathbf{X}_{\text{combined}})
+\end{equation}
+
+Here, $\mathbf{X}_{\text{avg}}^{\text{transformed}}$ and $\mathbf{X}_{\text{var}}^{\text{transformed}}$ denote the outputs of the transformer encoders applied to the average and variance pooling branches, respectively. The convolutional encoder (\texttt{ConvEncoder}) consists of a single 2D convolutional layer, followed by batch normalization and an ELU activation function. This configuration promotes local feature integration across the combined statistical descriptors, reinforcing discriminative patterns for classification \cite{vaswani2017attention}.
+
+The resulting encoded features are then flattened and passed through a linear layer to generate the classification logits:
+
+\begin{equation}
+\mathbf{y} = \text{Linear}(\text{Flatten}(\mathbf{X}_{\text{encoded}})) = \mathbf{W}_{\text{classify}} \cdot \text{Flatten}(\mathbf{X}_{\text{encoded}})
+\end{equation}
+
+where $\mathbf{W}_{\text{classify}} \in \mathbb{R}^{d_{\text{flat}} \times C_{\text{classes}}}$ is the weight matrix of the final classification layer, $d_{\text{flat}}$ is the dimensionality of the flattened features, and $C_{\text{classes}}$ is the number of target classes.
+
+
+\section{Results}
+
+The performance evaluation of the proposed model was conducted using three EEG datasets: BCI IV-2a, BCI IV-2b, and the Thinking Out Loud (ToL) \cite{nieto2022thinking} dataset. The classification accuracy and $\kappa$-scores obtained from the proposed model are compared against various state-of-the-art models, including EEGNet \cite{lawhern2018eegnet}, FBCSP \cite{ang2008filter}, Incep-EEGNet \cite{zhang2020inception}, Deep ConvNet \cite{schirrmeister2017deep}, ShallowConvNet \cite{schirrmeister2017deep}, and others. Additionally, an ablation study was performed to assess the contribution of key components within the proposed architecture.
+
+\subsection{Performance Analysis on BCI IV-2a Dataset}
+
+Table \ref{tab:BCI_IV2a} presents the classification accuracy and Cohen's $\kappa$-scores across nine subjects in the BCI IV-2a dataset. The proposed model achieved a mean accuracy of 82.84\% and a $\kappa$-score of 0.77, outperforming all baseline models in both metrics. Specifically, the proposed model demonstrated substantial improvements for subjects S3 and S8, achieving accuracies of 96.82\% and 91.21\%, respectively, with $\kappa$-scores of 0.95 and 0.88. These results indicate the model’s effectiveness in distinguishing motor imagery classes, especially in cases where inter-class variability is high.
+
+% \begin{table*}[htbp]
+% \centering
+% \caption{Classification accuracy (\%) and $\kappa$-scores on the BCI IV-2a dataset. 
+% In this table, the bold values indicate the best results. Acc. is the accuracy, and S.D. is 
+% the standard deviation.}
+% \label{tab:BCI_IV2a}
+% \resizebox{\textwidth}{!}{
+% % If the table is too wide, you can wrap it with \resizebox{\textwidth}{!}{ ... }
+% \begin{tabular}{c|cc|cc|cc|cc|cc|cc|cc}
+% \hline
+% \multirow{4}{*}{\textbf{}} 
+% & \multicolumn{2}{c|}{\textbf{EEGNet \cite{lawhern2018eegnet}}} 
+% & \multicolumn{2}{c|}{\textbf{FBCSP\cite{ang2008filter}}} 
+% & \multicolumn{2}{c|}{\textbf{Incep-EEGNet \cite{zhang2020inception}}} 
+% & \multicolumn{2}{c|}{\textbf{Deep ConvNet \cite{schirrmeister2017deep}}} 
+% & \multicolumn{2}{c|}{\textbf{TransNet \cite{ma2024attention}}} 
+% & \multicolumn{2}{c|}{\textbf{ShallowConvNet \cite{schirrmeister2017deep}}} 
+% & \multicolumn{2}{c}{\textbf{Our Proposed Model}} \\
+
+% \cline{Subject}
+% & \textbf{Acc.} & $\boldsymbol{\kappa}$ 
+% & \textbf{Acc.} & $\boldsymbol{\kappa}$ 
+% & \textbf{Acc.} & $\boldsymbol{\kappa}$ 
+% & \textbf{Acc.} & $\boldsymbol{\kappa}$ 
+% & \textbf{Acc.} & $\boldsymbol{\kappa}$ 
+% & \textbf{Acc.} & $\boldsymbol{\kappa}$ 
+% & \textbf{Acc.} & $\boldsymbol{\kappa}$ \\
+% \hline
+% S1 & 80.72 & 0.69 & 81.6 & 0.74 & 78.71 & 0.75 & 77.81 & 0.74 & 76.19 & 0.69 & 75.79 & 0.72 & \textbf{80.95} & \textbf{0.75} \\
+% S2 & 49.58 & 0.33 & 52.78 & 0.39 & 84.20 & 0.79 & 56.05 & 0.41 & 53.96 & 0.45 & \textbf{85.96} & \textbf{0.81} & 60.31 & 0.47 \\
+% S3 & 90.66 & 0.78 & 84.38 & 0.81 & 88.63 & 0.79 & 86.65 & 0.83 & 95.23 & 0.92 & 80.68 & 0.67 & \textbf{96.82} & \textbf{0.95} \\
+% S4 & 67.12 & 0.56 & 65.28 & 0.54 & 90.34 & 0.81 & 64.61 & 0.52 & 55.45& 0.48& \textbf{92.61}& \textbf{0.79}& 61.99 & 0.49 \\
+% S5 & 62.01 & 0.49 & 56.25 & 0.41 & \textbf{84.09}& \textbf{0.74}& 66.77 & 0.56 & 75.80& 0.71& 83.81 & 0.74 & 74.61 & 0.66 \\
+% S6 & 53.72 & 0.38 & 44.44 & 0.26 & \textbf{84.94}& \textbf{0.78}& 61.35 & 0.48 & 54.07& 0.79& 84.00 & 0.69 & 57.12 & 0.42 \\
+% S7 & 81.29 & 0.75 & 85.24 & 0.82 & 84.89 & 0.81 & 78.67 & 0.71 & 83.06& 0.78& 82.88 & 0.77 & \textbf{86.95} & \textbf{0.83} \\
+% S8 & 81.41 & 0.75 & 81.94 & 0.78 & 78.64 & 0.73 & 88.67 & 0.85 & 88.99 & 0.85 & 80.96 & 0.76 & \textbf{91.21} & \textbf{0.88} \\
+% S9 & 84.06 & 0.64 & 72.92 & 0.63 & 77.50 & 0.66 & 80.19 & 0.66 & 81.59 & 0.72 & 78.18 & 0.66 & \textbf{87.62} & \textbf{0.77} \\
+% \hline
+% Mean & 72.29 & 0.60 & 69.87 & 0.60 & 83.55 & 0.76 & 73.42 & 0.64 & 83.20 & 0.75 & 82.76 & 0.73 & \textbf{83.51} & \textbf{0.77} \\
+% SD & 14.37 & 0.17 & 16.19 & 0.22 & 4.94 & 0.05 & 11.42 & 0.16 & 12.90 & 0.12 & 4.76 & 0.05 & 14.51 & 0.19 \\
+% \hline
+% \end{tabular}
+% }
+% \end{table*}
+
+\begin{table*}[htbp]
+\centering
+\caption{Classification Accuracies (\%) and Cohen’s $\kappa$ of Different Models Across Subjects (Updated)}
+\label{tab:BCI_IV2a}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{c|cc|cc|cc|cc|cc|cc|cc}
+\toprule
+\textbf{Subject} & \textbf{EEGNet Acc.} & \textbf{$\kappa$} & \textbf{FBCSP Acc.} & \textbf{$\kappa$} & \textbf{Incep-EEGNet Acc.} & \textbf{$\kappa$} & \textbf{Deep ConvNet Acc.} & \textbf{$\kappa$} & \textbf{TransNet Acc.} & \textbf{$\kappa$} & \textbf{ShallowConvNet Acc.} & \textbf{$\kappa$} & \textbf{Our Model Acc.} & \textbf{$\kappa$} \\
+\midrule
+S1  & 80.72 & 0.69 & 81.60 & 0.74 & 78.71 & 0.75 & 77.81 & 0.74 & 76.19 & 0.69 & 75.79 & 0.72 & \textbf{82.95} & \textbf{0.76} \\
+S2  & 49.58 & 0.33 & 52.78 & 0.39 & 84.20 & 0.79 & 56.05 & 0.41 & 53.96 & 0.45 & \textbf{85.96} & \textbf{0.81} & 77.31 & 0.71 \\
+S3  & 90.66 & 0.78 & 84.38 & 0.81 & 84.63 & 0.72 & 86.65 & 0.83 & 95.23 & 0.92 & 80.68 & 0.67 & \textbf{96.82} & \textbf{0.95} \\
+S4  & 67.12 & 0.56 & 65.28 & 0.54 & 90.34 & \textbf{0.81} & 64.61 & 0.52 & 55.45 & 0.48 & \textbf{92.61} & 0.79 & 76.97 & 0.69 \\
+S5  & 62.01 & 0.49 & 56.25 & 0.41 & \textbf{84.09} & \textbf{0.75} & 66.77 & 0.56 & 75.80 & 0.71 & 83.81 & 0.74 & 74.61 & 0.66 \\
+S6  & 53.72 & 0.38 & 44.44 & 0.26 & \textbf{84.94} & \textbf{0.78} & 61.35 & 0.48 & 54.07 & 0.79 & 78.53 & 0.69 & 69.12 & 0.62 \\
+S7  & 81.29 & 0.75 & 85.24 & 0.82 & 79.89 & 0.74 & 78.67 & 0.71 & 83.06 & 0.78 & 82.88 & 0.77 & \textbf{86.95} & \textbf{0.83} \\
+S8  & 81.41 & 0.75 & 81.94 & 0.78 & 78.64 & 0.73 & 88.21 & 0.81 & 85.99 & 0.76 & 76.96 & 0.72 & \textbf{91.21} & \textbf{0.88} \\
+S9  & 84.06 & 0.64 & 72.92 & 0.63 & 71.50 & 0.63 & 80.19 & 0.66 & 81.59 & 0.72 & 78.18 & 0.66 & \textbf{89.62} & \textbf{0.82} \\
+\midrule
+\textbf{Mean} & 72.29 & 0.60 & 69.43 & 0.60 & 81.88 & 0.74 & 73.37 & 0.64 & 73.48 & 0.70 & 81.71 & 0.73 & \textbf{82.84} & \textbf{0.77} \\
+\textbf{SD}   & 13.76 & 0.16 & \textbf{14.46} & \textbf{0.20} & 5.07 & 0.05 & 10.83 & 0.15 & 14.46 & 0.14 & 4.99 & 0.05 & 8.49 & 0.10 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table*}
+
+
+Compared to the best-performing baseline models, Incep-EEGNet and ShallowConvNet, the proposed model exhibited superior classification accuracy in most subjects. For instance, in subject S3, the proposed model surpassed Incep-EEGNet by 12.19\% and ShallowConvNet by 16.14\%. This highlights the proposed model’s robustness in capturing discriminative EEG features more effectively than the existing architectures.
+
+\subsection{Performance Analysis on BCI IV-2b Dataset}
+To further assess the model's capability in binary classification, the BCI IV-2b dataset was utilized. This dataset comprises recordings from 9 subjects and includes data from 3 EEG channels, representing two classes: left hand motor imagery and right hand motor imagery.
+
+Training and testing followed the dataset's standard partitioning scheme. The model was trained using multiple epochs with appropriate optimization strategies to ensure effective learning and generalization.
+\begin{table*}[htbp]
+\centering
+\caption{Classification accuracy (\%) on the BCI IV-2b dataset. Bold values indicate the highest accuracy per subject.}
+\label{tab:BCI_IV_2b}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{c|ccccc}
+\hline
+\textbf{Subject} & \textbf{Deep ConvNet  \cite{schirrmeister2017deep}} & \textbf{EEGNet-8,2 \cite{lawhern2018eegnet}} & \textbf{FBCNet \cite{ang2008filter}} & \textbf{EEG Conformer \cite{song2023eeg}} & \textbf{Our Model} \\
+\hline
+01& 74.69 & 76.25 & 77.81 & 77.81 & \textbf{79.06} \\
+02& \textbf{71.79} & 64.29 & 55.00 & 70.71 & 65.71 \\
+03& 86.56 & 87.19 & 62.81 & 85.31 & \textbf{87.81} \\
+04& 92.81 & 96.39 & 97.50 & 93.44 & \textbf{98.44} \\
+05& 87.19 & 91.25 & 93.75 & 91.50 & \textbf{96.88} \\
+06& 86.25 & 82.50 & 87.81 & 87.19 & \textbf{91.56} \\
+07& 92.81 & 89.18& 80.31 & \textbf{93.19} & 89.88 \\
+08& 94.69 & 91.88 & 92.50 & 94.69 & \textbf{95.63} \\
+09& 89.45& 86.47& 90.07 & \textbf{91.56} & 89.27 \\
+\hline
+\textbf{Average} & 86.25& 85.04& 81.95 & 87.27 & \textbf{89.03} \\
+\hline
+\end{tabular}
+}
+\end{table*}
+
+Table \ref{tab:BCI_IV_2b} summarizes the classification accuracies for the BCI IV-2b dataset. The proposed model attained the highest average accuracy of 89.03\%, outperforming all comparative models. Notably, the model achieved the best accuracy in subjects S4 (98.44\%) and S5 (96.88\%), indicating its capacity to generalize effectively across different subjects. While some baseline models, such as EEG Conformer and Deep ConvNet, demonstrated competitive performance, the proposed model consistently achieved higher accuracy across the majority of subjects, underscoring its superior generalizability in two-class motor imagery tasks.
+
+\subsection{Performance Analysis on Thinking Out Loud Dataset}
+Below is the comparative analysis of the performance of popular machine learning (ML) and deep learning (DL) models using the \textit{Thinking Out Loud} dataset. The results are benchmarked against existing studies from the literature.
+
+\begin{table}[h]
+\centering
+\caption{Classification accuracy of different models on EEG datasets. The table compares the performance of various classifiers, including our proposed model, on the Thinking Out Loud (ToL) dataset. Bold values indicate the best result.}
+\label{tab:performance_comparison_tol}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Classifier} & \textbf{Input Data} & \textbf{Accuracy} \\
+\midrule
+SVM & PSD features (channels left hemisphere) + PCA (0.99) & 26.20\% \\
+\addlinespace
+XGBoost & PSD features + PCA (0.99) & 27.90\% \\
+\addlinespace
+LSTM & most important features & 30.40\% \\
+\addlinespace
+LSTM & Raw data (all channels) & 27.20\% \\
+\addlinespace
+LSTM & Raw data (channels most important features) & 26.70\% \\
+\addlinespace
+BiLSTM & most important features & 31.30\% \\
+\addlinespace
+BiLSTM & Raw data (all channels) & 36.10\% \\
+\addlinespace
+BiLSTM & Raw data (channels most important features) & 33.10\% \\
+\addlinespace
+EEGNet & Raw Data (channels left hemisphere) & 29.67\% \\
+\addlinespace
+\textbf{Our Model} & 64 channels (frontal, temporal, parietal), 4s window & \textbf{41.68\%} \\
+\addlinespace
+\textbf{Our Model} & 64 channels (frontal, temporal, parietal), 0.7s window & \textbf{43.21\%} \\
+\addlinespace
+\textbf{Our Model} & 22 channels (most significant channels), 0.7 s window & \textbf{43.68\%} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+The results on the ToL dataset are reported in Table~\ref{tab:performance_comparison_tol}. The proposed model achieved a mean accuracy of 43.68\% using the 22 most significant channels, which is notably higher than the other models evaluated~\cite{Gasparini2022InnerSpeech}. For instance, the BiLSTM (Raw, All) model achieved a mean accuracy of 36.1\%, whereas the proposed model demonstrated superior classification performance. We also trained our model on a selected set of 64 channels from the frontal, temporal, and parietal regions using 4-second and 0.7-second windows, achieving accuracies of 41.68\% and 43.21\%, respectively. The accuracy improvements observed in the proposed model can be attributed to its ability to capture subtle cognitive patterns associated with 'thinking out loud' tasks.
+
+\subsection{Ablation Study Analysis}
+
+An ablation study was conducted to assess the impact of various model components, as summarized in Table \ref{tab:ablation_test_BCI_IV_2a}. The full model configuration consistently achieved the highest classification accuracies across most subjects. For example, in subject S03, the complete model attained 96.82\%, which dropped to 86.13\% when spatial attention was removed and further declined to 63.58\% when both spatial and channel attention mechanisms were excluded. This trend was observed across other subjects, indicating the significance of attention mechanisms and the transformer module in enhancing classification accuracy.
+
+\begin{table*}[htbp]
+\centering
+\caption{Ablation Test Results on BCI IV-2a Dataset. The classification accuracy (\%) for each subject is shown with various model configurations.}
+\label{tab:ablation_test_BCI_IV_2a}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{l|c|c|c|c|c}
+\hline
+\textbf{Subject} & \textbf{Full Model} & \textbf{w/o Spatial Attn} & \textbf{w/o Channel Attn} & \textbf{w/o Dual Attn} & \textbf{w/o Transformer} \\
+\hline
+S01 & \textbf{82.95}& 75.21 & 74.60 & 72.41 & 69.35 \\
+S02 & \textbf{77.31}& 72.10 & 76.90& 71.10 & 70.20 \\
+S03 & \textbf{96.82} & 86.13 & 75.46 & 63.58 & 69.02 \\
+S04 & 76.97& \textbf{81.34} & 77.51 & 77.15 & 70.66 \\
+S05 & \textbf{74.61} & 74.11 & 72.02 & 65.05 & 61.58 \\
+S06 & 69.12& \textbf{76.56} & 71.27 & 73.62 & 69.41 \\
+S07 & \textbf{86.95} & 78.60 & 65.10 & 69.03 & 67.12 \\
+S08 & \textbf{91.21} & 81.37 & 75.86 & 83.93 & 72.71 \\
+S09 & \textbf{89.62}& 67.03 & 76.51 & 74.30 & 67.31 \\
+\hline
+\end{tabular}
+}
+\end{table*}
+
+
+
+In general, the ablation study shows that the integration of the dual channel module (spatial and channel attention), coupled with the transformer architecture, contributes significantly to the model’s performance, enabling it to effectively capture spatio-temporal features critical for EEG classification tasks.
+
+\section{Discussion}
+
+The development and evaluation of EEG-DATNet, as detailed in this study, represent a significant advancement in EEG-based brain-computer interface (BCI) systems. By integrating multi-scale temporal convolutions, spatial convolutions, dual pooling mechanisms, a spiking-inspired activation function, and a novel dual-attention transformer encoder, EEG-DATNet effectively addresses key challenges in EEG signal classification, including non-stationarity, high dimensionality, and susceptibility to noise \cite{lotte2018review}. The model’s superior performance across three benchmark datasets—BCI Competition IV-2a, BCI Competition IV-2b, and the Thinking Out Loud (ToL) dataset—demonstrates its robustness and versatility in handling diverse EEG tasks, from motor imagery to cognitive state decoding \cite{tangermann2012review, leeb2008graz2b, nieto2022thinking}.
+
+A primary strength of EEG-DATNet is its ability to capture the complex spatiotemporal dynamics of EEG signals through a hybrid architecture combining convolutional and transformer-based components. The multi-scale temporal convolution module, with kernel sizes spanning 60ms to 260ms, extracts features across multiple frequency bands (e.g., delta, theta, alpha, beta, gamma), enabling the model to discern both transient and oscillatory patterns critical for EEG analysis \cite{schirrmeister2017deep}. The spatial convolution layer further enhances performance by modeling inter-channel dependencies, reflecting functional connectivity across brain regions \cite{lawhern2018eegnet}. These components contribute to the high classification precision of the model of 82. 84\% in BCI IV-2a, 89. 03\% in BCI IV-2b and 43. 68\% in the ToL dataset, outperforming current baselines such as EEGNet, Incep-EEGNet and BiLSTM \cite{lawhern2018eegnet, zhang2020inception, Gasparini2022InnerSpeech}.
+
+The dual pooling mechanism, combining average and variance pooling, is a novel contribution that captures both central tendencies and temporal variability in EEG signals. Variance pooling, in particular, encodes signal dispersion, which is essential for distinguishing subtle cognitive states or pathological conditions \cite{roy2019chronnectome}. The ablation study underscores the importance of this mechanism, with performance drops observed when variance pooling is removed (e.g., from 96.82\% to 86.13\% for subject S03 on BCI IV-2a). Similarly, the dual-attention transformer encoder, which integrates spatial and channel attention, significantly enhances the model’s ability to focus on salient temporal segments and informative feature channels. The substantial performance decline when excluding both attention mechanisms (e.g., to 63.58\% for S03) highlights their critical role in achieving robust classification \cite{vaswani2017attention}.
+
+The spiking-inspired activation function introduces a biologically plausible element, promoting temporal sparsity and energy efficiency, which are advantageous for real-time BCI applications \cite{maass2002real}. By using a surrogate gradient for backpropagation, the model remains trainable while mimicking neuronal firing patterns, enhancing both performance and interpretability \cite{neftci2019surrogate}. This approach aligns with emerging trends in spiking neural networks and offers potential insights into the neural mechanisms underlying EEG signals.
+
+Despite its strengths, EEG-DATNet has limitations that merit further exploration. The computational complexity of the transformer-based architecture, while mitigated by the dual-attention mechanism, may challenge deployment on resource-constrained devices, such as wearable BCIs. Techniques like model pruning or quantization could enhance its suitability for real-time applications. Additionally, while EEG-DATNet generalizes well across the evaluated datasets, its performance on smaller or more heterogeneous datasets requires further investigation, given the high variability of EEG signals across subjects and sessions \cite{lotte2018review}. Future work could explore transfer learning or domain adaptation to improve cross-subject and cross-dataset generalizability.
+
+The preprocessing pipeline, implemented using MNE-Python, significantly improved signal quality through filtering, ICA-based artifact removal, and epoching \cite{Gramfort2013}. The evaluation of different configurations (e.g., 4-second vs. 0.7-second time windows, all channels vs. 22 selected channels) provides insights into the trade-offs between data complexity and decoding performance. The 22-channel configuration, focusing on frontal, temporal, and parietal regions, maintained high ERP quality while reducing computational demands, suggesting its potential for practical BCI systems with fewer electrodes \cite{PerroneBertolotti2014}.
+
+\section{Conclusion}
+
+EEG-DATNet sets a new benchmark for EEG signal classification in brain-computer interfaces. It offers a reliable and interpretable framework for decoding complex brain activity. The model uses multi-scale temporal and spatial convolutions, dual pooling, spiking activations, and a dual-attention transformer encoder. It demonstrates strong performance across the BCI IV-2a, BCI IV-2b, and ToL datasets, effectively handling both motor imagery and cognitive state classification tasks. This versatility makes it suitable for applications in neurorehabilitation, cognitive monitoring, and assistive communication.
+
+Ablation studies highlight the importance of the dual-attention mechanism and variance pooling. These components help the model capture key spatiotemporal features. The spiking activation function enhances efficiency and interpretability by aligning with biological neural processing principles.
+
+However, challenges remain regarding computational complexity and cross-subject variability. Further work can address these limitations through model optimization and advanced learning strategies.
+
+EEG-DATNet provides a solid foundation for future EEG-based BCI systems. Its comprehensive approach to feature extraction and attention-based processing offers a scalable framework for advancing neurophysiological signal analysis, paving the way for more accurate and practical BCI applications.
+
+
+
+\backmatter
+
+\bibliography{sn-bibliography}% common bib file
+%% if required, the content of .bbl file can be included here once bbl is generated
+%%\input sn-article.bbl
+
+% \begin{appendices}
+
+% \section{Other results}\label{secA1}
+
+% An appendix contains supplementary information that is not an essential part of the text itself but which may be helpful in providing a more comprehensive understanding of the research problem or it is information that is too cumbersome to be included in the body of the paper.
+
+% \end{appendices}
 
 \end{document}
-
